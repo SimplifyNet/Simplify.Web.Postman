@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Web.Postman", "Simplify.Web.Postman\Simplify.Web.Postman.csproj", "{1834BEA8-2331-4A44-86C9-CC764BCA0761}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesterApp", "TesterApp\TesterApp.csproj", "{857E0A47-2D7B-478A-BEEF-6CB3CF9EC5B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1834BEA8-2331-4A44-86C9-CC764BCA0761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1834BEA8-2331-4A44-86C9-CC764BCA0761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1834BEA8-2331-4A44-86C9-CC764BCA0761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1834BEA8-2331-4A44-86C9-CC764BCA0761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{857E0A47-2D7B-478A-BEEF-6CB3CF9EC5B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{857E0A47-2D7B-478A-BEEF-6CB3CF9EC5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{857E0A47-2D7B-478A-BEEF-6CB3CF9EC5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{857E0A47-2D7B-478A-BEEF-6CB3CF9EC5B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9D639DD-A3A3-4FAD-8928-7CAA49A9AA2A}
+	EndGlobalSection
+EndGlobal

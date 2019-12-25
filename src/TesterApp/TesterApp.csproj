@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.0</TargetFramework>
+		<Version>0.1</Version>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Simplify.Web.Postman\Simplify.Web.Postman.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+</Project>
