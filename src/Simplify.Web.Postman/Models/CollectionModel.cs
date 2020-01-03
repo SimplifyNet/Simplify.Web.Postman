@@ -1,7 +1,16 @@
 ﻿namespace Simplify.Web.Postman.Models
 {
+	/// <summary>
+	/// Provides postman collection model
+	/// </summary>
 	public class CollectionModel
 	{
-		public CollectionHeader Header { get; set; }
+		/// <summary>
+		/// Gets or sets the header.
+		/// </summary>
+		/// <value>
+		/// The header.
+		/// </value>
+		public CollectionHeader? Header { get; set; }
 	}
 }

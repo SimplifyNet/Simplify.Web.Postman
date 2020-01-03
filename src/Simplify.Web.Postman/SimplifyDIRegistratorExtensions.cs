@@ -18,11 +18,11 @@ namespace Simplify.Web.Postman
 		/// <returns></returns>
 		public static IDIRegistrator RegisterSimplifyWebPostman(this IDIRegistrator registrator, PostmanGenerationSettings? settings = null)
 		{
-			var projectAssemblyName = Assembly.GetCallingAssembly().GetName().Name;
+			settings = DefaultPostmanGenerationSettingsFactory.CreateOrUpdateSettings(settings, Assembly.GetCallingAssembly().GetName().Name);
 
 			registrator.Register(r => new CollectionBuilder(new List<ICollectionPartBuilder> { }))
 				.Register<ICollectionExporter>(r => new FileCollectionExporter(r.Resolve<CollectionModelSerializer>(), r.Resolve<IEnvironment>(),
-					projectAssemblyName))
+					settings))
 				.Register<CollectionModelSerializer>()
 				.Register<PostmanGenerator>();
 
