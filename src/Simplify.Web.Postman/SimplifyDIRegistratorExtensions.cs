@@ -20,7 +20,10 @@ namespace Simplify.Web.Postman
 		{
 			settings = DefaultPostmanGenerationSettingsFactory.CreateOrUpdateSettings(settings, Assembly.GetCallingAssembly().GetName().Name);
 
-			registrator.Register(r => new CollectionBuilder(new List<ICollectionPartBuilder> { }))
+			registrator.Register(r => new CollectionBuilder(new List<ICollectionPartBuilder>
+				{
+					new CollectionItemsBuilder()
+				}))
 				.Register<ICollectionExporter>(r => new FileCollectionExporter(r.Resolve<CollectionModelSerializer>(), r.Resolve<IEnvironment>(),
 					settings))
 				.Register<CollectionModelSerializer>()

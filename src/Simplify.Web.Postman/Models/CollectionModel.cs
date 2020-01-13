@@ -1,4 +1,7 @@
-﻿namespace Simplify.Web.Postman.Models
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace Simplify.Web.Postman.Models
 {
 	/// <summary>
 	/// Provides postman collection model
@@ -12,5 +15,8 @@
 		/// The header.
 		/// </value>
 		public CollectionHeader? Header { get; set; }
+
+		[JsonPropertyName("item")]
+		public IList<CollectionItem> Items { get; set; } = new List<CollectionItem>();
 	}
 }
