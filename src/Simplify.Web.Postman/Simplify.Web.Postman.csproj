@@ -20,6 +20,6 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Simplify.Web" Version="4.1.0" />
-		<PackageReference Include="System.Json" Version="4.7.0" />
+		<PackageReference Include="System.Json" Version="4.7.1" />
 	</ItemGroup>
 </Project>
