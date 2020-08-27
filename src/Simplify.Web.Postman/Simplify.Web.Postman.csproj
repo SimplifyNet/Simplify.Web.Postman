@@ -19,7 +19,7 @@
 		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Simplify.Web.Postman.xml</DocumentationFile>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Simplify.Web" Version="4.1.1" />
+		<PackageReference Include="Simplify.Web" Version="4.1.2" />
 		<PackageReference Include="System.Json" Version="4.7.1" />
 	</ItemGroup>
 </Project>
