@@ -16,7 +16,7 @@ namespace TesterApp
 			if (env.IsDevelopment())
 				app.UseDeveloperExceptionPage();
 
-			app.UseSimplifyWeb();
+			app.UseSimplifyWebWithoutRegistrations();
 
 			DIContainer.Current.Verify();
 
@@ -27,6 +27,8 @@ namespace TesterApp
 		public void ConfigureServices(IServiceCollection services)
 		{
 			IocRegistrations.Register();
+
+			DIContainer.Current.Verify();
 		}
 	}
 }

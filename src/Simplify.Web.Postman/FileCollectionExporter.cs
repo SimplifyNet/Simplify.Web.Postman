@@ -2,6 +2,7 @@
 using Simplify.Web.Modules;
 using Simplify.Web.Postman.Json;
 using Simplify.Web.Postman.Models;
+using Simplify.Web.Postman.Settings;
 
 namespace Simplify.Web.Postman
 {
@@ -13,7 +14,7 @@ namespace Simplify.Web.Postman
 	{
 		private readonly CollectionModelSerializer _serializer;
 		private readonly IEnvironment _environment;
-		private readonly PostmanGenerationSettings _settings;
+		private readonly IPostmanGenerationSettings _settings;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="FileCollectionExporter"/> class.
@@ -21,7 +22,7 @@ namespace Simplify.Web.Postman
 		/// <param name="serializer">The serializer.</param>
 		/// <param name="environment">The environment.</param>
 		/// <param name="settings">The settings.</param>
-		public FileCollectionExporter(CollectionModelSerializer serializer, IEnvironment environment, PostmanGenerationSettings settings)
+		public FileCollectionExporter(CollectionModelSerializer serializer, IEnvironment environment, IPostmanGenerationSettings settings)
 		{
 			_serializer = serializer;
 			_environment = environment;

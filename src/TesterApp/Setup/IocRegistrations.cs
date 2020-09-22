@@ -1,4 +1,5 @@
 ﻿using Simplify.DI;
+using Simplify.Web.Bootstrapper;
 using Simplify.Web.Postman;
 
 namespace TesterApp.Setup
@@ -7,7 +8,8 @@ namespace TesterApp.Setup
 	{
 		public static void Register()
 		{
-			DIContainer.Current.RegisterSimplifyWebPostman();
+			DIContainer.Current.RegisterSimplifyWeb()
+				.RegisterSimplifyWebPostman();
 		}
 	}
 }

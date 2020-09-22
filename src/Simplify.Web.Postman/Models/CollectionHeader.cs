@@ -5,5 +5,6 @@
 	/// </summary>
 	public class CollectionHeader
 	{
+		public string Name { get; set; }
 	}
 }

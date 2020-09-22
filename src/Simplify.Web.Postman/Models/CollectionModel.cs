@@ -14,7 +14,8 @@ namespace Simplify.Web.Postman.Models
 		/// <value>
 		/// The header.
 		/// </value>
-		public CollectionHeader? Header { get; set; }
+		[JsonPropertyName("info")]
+		public CollectionHeader Header { get; set; }
 
 		[JsonPropertyName("item")]
 		public IList<CollectionItem> Items { get; set; } = new List<CollectionItem>();

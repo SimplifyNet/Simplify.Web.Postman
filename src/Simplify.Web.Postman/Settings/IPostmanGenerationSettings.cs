@@ -1,19 +1,17 @@
-﻿namespace Simplify.Web.Postman
+﻿namespace Simplify.Web.Postman.Settings
 {
 	/// <summary>
-	/// Provides postman files generation settings
+	///  Represents postman files generation settings
 	/// </summary>
-	public class PostmanGenerationSettings
+	public interface IPostmanGenerationSettings
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="PostmanGenerationSettings"/> class.
+		/// Gets or sets the name of the collection.
 		/// </summary>
-		public PostmanGenerationSettings()
-		{
-			GenerationFolderPath = "postman";
-			CollectionFileNamePostfix = ".postman_collection";
-			EnvironmentFileNamePostfix = ".postman_environment";
-		}
+		/// <value>
+		/// The name of the collection.
+		/// </value>
+		string CollectionName { get; }
 
 		/// <summary>
 		/// Gets or sets the name of the collection file.
@@ -21,7 +19,7 @@
 		/// <value>
 		/// The name of the collection file.
 		/// </value>
-		public string? CollectionFileName { get; set; }
+		string CollectionFileName { get; }
 
 		/// <summary>
 		/// Gets or sets the collection file name postfix.
@@ -29,7 +27,7 @@
 		/// <value>
 		/// The collection file name postfix.
 		/// </value>
-		public string CollectionFileNamePostfix { get; set; }
+		string CollectionFileNamePostfix { get; }
 
 		/// <summary>
 		/// Gets or sets the name of the environment file.
@@ -37,7 +35,7 @@
 		/// <value>
 		/// The name of the environment file.
 		/// </value>
-		public string? EnvironmentFileName { get; set; }
+		string? EnvironmentFileName { get; }
 
 		/// <summary>
 		/// Gets or sets the environment file name postfix.
@@ -45,7 +43,7 @@
 		/// <value>
 		/// The environment file name postfix.
 		/// </value>
-		public string EnvironmentFileNamePostfix { get; set; }
+		string EnvironmentFileNamePostfix { get; }
 
 		/// <summary>
 		/// Gets or sets the generation folder path.
@@ -53,6 +51,6 @@
 		/// <value>
 		/// The generation folder path.
 		/// </value>
-		public string GenerationFolderPath { get; set; }
+		string GenerationFolderPath { get; }
 	}
 }
