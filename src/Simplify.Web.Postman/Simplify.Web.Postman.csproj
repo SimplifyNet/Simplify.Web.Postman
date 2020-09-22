@@ -7,7 +7,7 @@
 		<Product>Simplify</Product>
 		<Description>Postman collection and environment generation extension for Simplify.Web</Description>
 		<Copyright>Licensed under LGPL</Copyright>
-		<Version>0.1</Version>
+		<Version>0.2</Version>
 		<PackageProjectUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</PackageProjectUrl>
 		<PackageIconUrl>https://raw.githubusercontent.com/SimplifyNet/Images/master/LogoWeb32x32.png</PackageIconUrl>
 		<RepositoryUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</RepositoryUrl>
