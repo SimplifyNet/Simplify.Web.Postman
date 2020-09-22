@@ -1,4 +1,6 @@
-﻿namespace Simplify.Web.Postman.Models
+﻿#nullable disable
+
+namespace Simplify.Web.Postman.Models
 {
 	/// <summary>
 	/// Provides postman collection header
