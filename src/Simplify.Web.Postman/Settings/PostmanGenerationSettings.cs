@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace Simplify.Web.Postman.Settings
 {
@@ -7,20 +8,26 @@ namespace Simplify.Web.Postman.Settings
 	/// </summary>
 	public class PostmanGenerationSettings : IPostmanGenerationSettings
 	{
+		private string _collectionName;
+		private string _collectionFileName;
+		private string _collectionFileNamePostfix;
+		private string _environmentFileName;
+		private string _environmentFileNamePostfix;
+		private string _generationFolderPath;
+
 		/// <summary>
-		/// Initializes a new instance of the <see cref="PostmanGenerationSettings"/> class.
+		/// Initializes a new instance of the <see cref="PostmanGenerationSettings" /> class.
 		/// </summary>
 		public PostmanGenerationSettings()
 		{
-			GenerationFolderPath = "postman";
-			CollectionFileNamePostfix = ".postman_collection";
-			EnvironmentFileNamePostfix = ".postman_environment";
-
 			var projectAssemblyName = Assembly.GetEntryAssembly()?.GetName().Name ?? "App";
 
-			CollectionName = projectAssemblyName;
-			CollectionFileName = projectAssemblyName;
-			EnvironmentFileName = projectAssemblyName;
+			_collectionName = projectAssemblyName;
+			_collectionFileName = projectAssemblyName;
+			_collectionFileNamePostfix = ".postman_collection";
+			_environmentFileName = projectAssemblyName;
+			_environmentFileNamePostfix = ".postman_environment";
+			_generationFolderPath = "postman";
 		}
 
 		/// <summary>
@@ -29,7 +36,11 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The name of the collection.
 		/// </value>
-		public string? CollectionName { get; set; }
+		public string CollectionName
+		{
+			get => _collectionName;
+			set => _collectionName = value ?? throw new ArgumentNullException(nameof(value));
+		}
 
 		/// <summary>
 		/// Gets or sets the name of the collection file.
@@ -37,7 +48,11 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The name of the collection file.
 		/// </value>
-		public string? CollectionFileName { get; set; }
+		public string CollectionFileName
+		{
+			get => _collectionFileName;
+			set => _collectionFileName = value ?? throw new ArgumentNullException(nameof(value));
+		}
 
 		/// <summary>
 		/// Gets or sets the collection file name postfix.
@@ -45,7 +60,11 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The collection file name postfix.
 		/// </value>
-		public string CollectionFileNamePostfix { get; set; }
+		public string CollectionFileNamePostfix
+		{
+			get => _collectionFileNamePostfix;
+			set => _collectionFileNamePostfix = value ?? throw new ArgumentNullException(nameof(value));
+		}
 
 		/// <summary>
 		/// Gets or sets the name of the environment file.
@@ -53,7 +72,11 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The name of the environment file.
 		/// </value>
-		public string? EnvironmentFileName { get; set; }
+		public string EnvironmentFileName
+		{
+			get => _environmentFileName;
+			set => _environmentFileName = value ?? throw new ArgumentNullException(nameof(value));
+		}
 
 		/// <summary>
 		/// Gets or sets the environment file name postfix.
@@ -61,7 +84,11 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The environment file name postfix.
 		/// </value>
-		public string EnvironmentFileNamePostfix { get; set; }
+		public string EnvironmentFileNamePostfix
+		{
+			get => _environmentFileNamePostfix;
+			set => _environmentFileNamePostfix = value ?? throw new ArgumentNullException(nameof(value));
+		}
 
 		/// <summary>
 		/// Gets or sets the generation folder path.
@@ -69,6 +96,10 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The generation folder path.
 		/// </value>
-		public string GenerationFolderPath { get; set; }
+		public string GenerationFolderPath
+		{
+			get => _generationFolderPath;
+			set => _generationFolderPath = value ?? throw new ArgumentNullException(nameof(value));
+		}
 	}
 }

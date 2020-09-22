@@ -35,7 +35,7 @@
 		/// <value>
 		/// The name of the environment file.
 		/// </value>
-		string? EnvironmentFileName { get; }
+		string EnvironmentFileName { get; }
 
 		/// <summary>
 		/// Gets or sets the environment file name postfix.
