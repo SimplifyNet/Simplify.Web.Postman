@@ -2,7 +2,7 @@
 using Simplify.Web.Meta;
 using Simplify.Web.Postman.Models;
 
-namespace Simplify.Web.Postman
+namespace Simplify.Web.Postman.PartBuilders
 {
 	public class CollectionItemsBuilder : ICollectionPartBuilder
 	{

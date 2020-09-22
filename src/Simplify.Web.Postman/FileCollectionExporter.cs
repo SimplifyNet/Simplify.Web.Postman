@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Simplify.Web.Modules;
+using Simplify.Web.Postman.Json;
 using Simplify.Web.Postman.Models;
 
 namespace Simplify.Web.Postman

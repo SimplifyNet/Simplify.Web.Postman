@@ -2,6 +2,8 @@
 using System.Reflection;
 using Simplify.DI;
 using Simplify.Web.Modules;
+using Simplify.Web.Postman.Json;
+using Simplify.Web.Postman.PartBuilders;
 
 namespace Simplify.Web.Postman
 {

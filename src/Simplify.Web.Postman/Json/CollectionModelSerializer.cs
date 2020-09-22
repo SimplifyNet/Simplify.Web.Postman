@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Simplify.Web.Postman.Models;
 
-namespace Simplify.Web.Postman
+namespace Simplify.Web.Postman.Json
 {
 	/// <summary>
 	/// Provides postman collection model serializer

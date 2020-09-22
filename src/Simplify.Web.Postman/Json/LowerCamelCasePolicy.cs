@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Simplify.Web.Postman
+namespace Simplify.Web.Postman.Json
 {
 	public class LowerCamelCasePolicy : JsonNamingPolicy
 	{
