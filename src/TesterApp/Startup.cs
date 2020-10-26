@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Simplify.DI;
 using Simplify.Web;
+using Simplify.Web.Postman;
 using TesterApp.Setup;
 
 namespace TesterApp
@@ -12,18 +13,22 @@ namespace TesterApp
 	{
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
-			IocRegistrations.Register();
-
 			if (env.IsDevelopment())
 				app.UseDeveloperExceptionPage();
 
-			app.UseSimplifyWeb();
+			app.UseSimplifyWebWithoutRegistrations();
 
 			DIContainer.Current.Verify();
+
+			if (env.IsDevelopment())
+				DIContainer.Current.GeneratePostmanData();
 		}
 
 		public void ConfigureServices(IServiceCollection services)
 		{
+			IocRegistrations.Register();
+
+			DIContainer.Current.Verify();
 		}
 	}
 }
