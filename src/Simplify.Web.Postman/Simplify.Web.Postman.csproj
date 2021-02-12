@@ -1,22 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0</TargetFrameworks>
-		<LangVersion>8.0</LangVersion>
+		<LangVersion>9.0</LangVersion>
 		<Nullable>enable</Nullable>
+		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
+		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Simplify.Web.Postman.xml</DocumentationFile>
+
+		<Version>0.2</Version>
+		<PackageReleaseNotes>
+		</PackageReleaseNotes>
+
 		<Authors>Alexander Krylkov</Authors>
 		<Product>Simplify</Product>
 		<Description>Postman collection and environment generation extension for Simplify.Web</Description>
 		<Copyright>Licensed under LGPL</Copyright>
-		<Version>0.2</Version>
 		<PackageProjectUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</PackageProjectUrl>
 		<PackageIconUrl>https://raw.githubusercontent.com/SimplifyNet/Images/master/LogoWeb32x32.png</PackageIconUrl>
 		<RepositoryUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</RepositoryUrl>
 		<RepositoryType>GIT</RepositoryType>
 		<PackageTags>Simplify.Web Postman API</PackageTags>
-		<PackageReleaseNotes>
-		</PackageReleaseNotes>
-		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
-		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Simplify.Web.Postman.xml</DocumentationFile>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Simplify.Web" Version="4.2.*" />
