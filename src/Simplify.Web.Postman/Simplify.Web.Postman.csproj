@@ -3,6 +3,8 @@
 		<TargetFrameworks>netstandard2.0</TargetFrameworks>
 		<LangVersion>9.0</LangVersion>
 		<Nullable>enable</Nullable>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
 		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Simplify.Web.Postman.xml</DocumentationFile>
 
