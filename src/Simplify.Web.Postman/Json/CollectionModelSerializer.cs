@@ -13,13 +13,11 @@ namespace Simplify.Web.Postman.Json
 		/// </summary>
 		/// <param name="model">The model.</param>
 		/// <returns></returns>
-		public string Serialize(CollectionModel model)
-		{
-			return JsonSerializer.Serialize(model, new JsonSerializerOptions
+		public string Serialize(CollectionModel model) =>
+			JsonSerializer.Serialize(model, new JsonSerializerOptions
 			{
 				PropertyNamingPolicy = new LowerCamelCasePolicy(),
 				WriteIndented = true
 			});
-		}
 	}
 }

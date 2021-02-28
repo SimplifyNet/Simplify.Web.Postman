@@ -6,10 +6,12 @@ namespace TesterApp.Setup
 {
 	public static class IocRegistrations
 	{
-		public static void Register()
+		public static IDIContainerProvider RegisterAll(this IDIContainerProvider containerProvider)
 		{
-			DIContainer.Current.RegisterSimplifyWeb()
+			containerProvider.RegisterSimplifyWeb()
 				.RegisterSimplifyWebPostman();
+
+			return containerProvider;
 		}
 	}
 }

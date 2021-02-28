@@ -16,10 +16,7 @@ namespace Simplify.Web.Postman
 		/// </summary>
 		/// <param name="partBuilders">The part builders.</param>
 		/// <exception cref="ArgumentNullException">partBuilders</exception>
-		public CollectionBuilder(IList<ICollectionPartBuilder> partBuilders)
-		{
-			_partBuilders = partBuilders ?? throw new ArgumentNullException(nameof(partBuilders));
-		}
+		public CollectionBuilder(IList<ICollectionPartBuilder> partBuilders) => _partBuilders = partBuilders ?? throw new ArgumentNullException(nameof(partBuilders));
 
 		/// <summary>
 		/// Builds the collection model.

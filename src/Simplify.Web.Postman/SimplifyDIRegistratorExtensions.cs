@@ -18,44 +18,30 @@ namespace Simplify.Web.Postman
 		/// <param name="registrator">The registrator.</param>
 		/// <param name="settings">The settings.</param>
 		/// <returns></returns>
-		public static IDIRegistrator RegisterSimplifyWebPostman(this IDIRegistrator registrator, IPostmanGenerationSettings? settings = null)
-		{
-			registrator.Register(r => settings ??= new PostmanGenerationSettings(), LifetimeType.Singleton);
-
-			registrator.RegisterPartBuilders()
+		public static IDIRegistrator RegisterSimplifyWebPostman(this IDIRegistrator registrator, IPostmanGenerationSettings? settings = null) =>
+			registrator.Register(r => settings ??= new PostmanGenerationSettings(), LifetimeType.Singleton)
+				.RegisterPartBuilders()
 				.RegisterCollectionBuilder()
-				.RegisterCollectionExporter();
-
-			registrator.Register<CollectionModelSerializer>()
+				.RegisterCollectionExporter()
+				.Register<CollectionModelSerializer>()
 				.Register<PostmanGenerator>();
 
-			return registrator;
-		}
-
-		private static IDIRegistrator RegisterPartBuilders(this IDIRegistrator registrator)
-		{
+		private static IDIRegistrator RegisterPartBuilders(this IDIRegistrator registrator) =>
 			registrator.Register<CollectionHeaderBuilder>(LifetimeType.Singleton)
 				.Register<CollectionItemsBuilder>(LifetimeType.Singleton);
 
-			return registrator;
-		}
-
-		private static IDIRegistrator RegisterCollectionBuilder(this IDIRegistrator registrator)
-		{
-			return registrator.Register(r => new CollectionBuilder(new List<ICollectionPartBuilder>
+		private static IDIRegistrator RegisterCollectionBuilder(this IDIRegistrator registrator) =>
+			registrator.Register(r => new CollectionBuilder(new List<ICollectionPartBuilder>
 			{
 				r.Resolve<CollectionHeaderBuilder>(),
 				r.Resolve<CollectionItemsBuilder>()
 			}));
-		}
 
-		private static IDIRegistrator RegisterCollectionExporter(this IDIRegistrator registrator)
-		{
-			return registrator.Register<ICollectionExporter>(r =>
+		private static IDIRegistrator RegisterCollectionExporter(this IDIRegistrator registrator) =>
+			registrator.Register<ICollectionExporter>(r =>
 					new FileCollectionExporter(r.Resolve<CollectionModelSerializer>(),
 						r.Resolve<IEnvironment>(),
 						r.Resolve<IPostmanGenerationSettings>()),
 				LifetimeType.Singleton);
-		}
 	}
 }
