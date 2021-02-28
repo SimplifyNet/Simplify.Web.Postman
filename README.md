@@ -13,4 +13,21 @@
 
 ## Quick Start
 
-// TODO
+Add `GeneratePostmanData` after Simplify registration and container setup
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+	if (env.IsDevelopment())
+		app.UseDeveloperExceptionPage();
+
+	app.UseSimplifyWebWithoutRegistrations();
+
+	DIContainer.Current.RegisterAll().Verify();
+
+	if (env.IsDevelopment())
+		DIContainer.Current.GeneratePostmanData();
+}
+```
+
+Postman files will generate in postman folder inside your app folder.
