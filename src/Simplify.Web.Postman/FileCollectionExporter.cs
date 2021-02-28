@@ -43,14 +43,8 @@ namespace Simplify.Web.Postman
 			File.WriteAllText(GenerateCollectionFilePath(folderPath), _serializer.Serialize(model));
 		}
 
-		private string GenerateExportFolderPath()
-		{
-			return Path.Combine(_environment.SitePhysicalPath, _settings.GenerationFolderPath);
-		}
+		private string GenerateExportFolderPath() => Path.Combine(_environment.SitePhysicalPath, _settings.GenerationFolderPath);
 
-		private string GenerateCollectionFilePath(string folderPath)
-		{
-			return Path.Combine(folderPath, _settings.CollectionFileName + _settings.CollectionFileNamePostfix + ".json");
-		}
+		private string GenerateCollectionFilePath(string folderPath) => Path.Combine(folderPath, _settings.CollectionFileName + _settings.CollectionFileNamePostfix + ".json");
 	}
 }
