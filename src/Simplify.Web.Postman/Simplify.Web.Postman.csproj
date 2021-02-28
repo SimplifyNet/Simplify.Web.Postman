@@ -6,8 +6,10 @@
 		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
 		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Simplify.Web.Postman.xml</DocumentationFile>
 
-		<Version>0.2</Version>
+		<Version>0.3</Version>
 		<PackageReleaseNotes>
+			New
+			* Simple postman requests generation
 		</PackageReleaseNotes>
 
 		<Authors>Alexander Krylkov</Authors>
