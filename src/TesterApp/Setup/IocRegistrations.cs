@@ -1,6 +1,7 @@
 ﻿using Simplify.DI;
 using Simplify.Web.Bootstrapper;
 using Simplify.Web.Postman;
+using Simplify.Web.Postman.Setup;
 
 namespace TesterApp.Setup
 {

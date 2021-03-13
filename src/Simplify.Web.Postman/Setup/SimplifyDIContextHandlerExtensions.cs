@@ -1,6 +1,6 @@
 ﻿using Simplify.DI;
 
-namespace Simplify.Web.Postman
+namespace Simplify.Web.Postman.Setup
 {
 	/// <summary>
 	/// Provides Simplify.DI Simplify.Web.Postman generation extensions

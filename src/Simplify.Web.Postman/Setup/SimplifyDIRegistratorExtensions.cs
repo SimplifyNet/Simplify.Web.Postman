@@ -5,7 +5,7 @@ using Simplify.Web.Postman.Json;
 using Simplify.Web.Postman.PartBuilders;
 using Simplify.Web.Postman.Settings;
 
-namespace Simplify.Web.Postman
+namespace Simplify.Web.Postman.Setup
 {
 	/// <summary>
 	/// Provides Simplify.DI Simplify.Web.Postman default registrations

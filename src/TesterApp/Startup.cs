@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Simplify.DI;
 using Simplify.Web;
 using Simplify.Web.Postman;
+using Simplify.Web.Postman.Setup;
 using TesterApp.Setup;
 
 namespace TesterApp
