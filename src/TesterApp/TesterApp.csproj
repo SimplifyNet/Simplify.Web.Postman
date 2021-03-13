@@ -7,7 +7,4 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Simplify.Web.Postman\Simplify.Web.Postman.csproj" />
 	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="ViewModels\" />
-	</ItemGroup>
 </Project>
