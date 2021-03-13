@@ -3,7 +3,7 @@
 namespace Simplify.Web.Postman.Models
 {
 	/// <summary>
-	/// Provides postman collection header
+	/// Provides Postman collection header model
 	/// </summary>
 	public class CollectionHeader
 	{
@@ -14,5 +14,13 @@ namespace Simplify.Web.Postman.Models
 		/// The name.
 		/// </value>
 		public string Name { get; set; }
+
+		/// <summary>
+		/// Gets or sets the schema.
+		/// </summary>
+		/// <value>
+		/// The schema.
+		/// </value>
+		public string Schema { get; set; } = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json";
 	}
 }

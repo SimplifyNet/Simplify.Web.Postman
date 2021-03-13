@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 namespace Simplify.Web.Postman.Models
 {
 	/// <summary>
-	/// Provides postman collection model
+	/// Provides Postman collection model
 	/// </summary>
 	public class CollectionModel
 	{
@@ -19,6 +19,12 @@ namespace Simplify.Web.Postman.Models
 		[JsonPropertyName("info")]
 		public CollectionHeader Header { get; set; }
 
+		/// <summary>
+		/// Gets or sets the items.
+		/// </summary>
+		/// <value>
+		/// The items.
+		/// </value>
 		[JsonPropertyName("item")]
 		public IList<CollectionItem> Items { get; set; } = new List<CollectionItem>();
 	}
