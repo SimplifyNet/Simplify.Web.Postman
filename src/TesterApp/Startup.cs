@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Simplify.DI;
 using Simplify.Web;
@@ -18,10 +19,14 @@ namespace TesterApp
 
 			app.UseSimplifyWebWithoutRegistrations();
 
-			DIContainer.Current.RegisterAll().Verify();
-
 			if (env.IsDevelopment())
 				DIContainer.Current.GeneratePostmanData();
 		}
+		public void ConfigureServices(IServiceCollection services) => InitializeContainer();
+
+		private static void InitializeContainer() =>
+			DIContainer.Current
+			.RegisterAll()
+			.Verify();
 	}
 }
