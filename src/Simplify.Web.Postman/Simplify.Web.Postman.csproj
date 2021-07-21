@@ -6,26 +6,29 @@
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
-		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Simplify.Web.Postman.xml</DocumentationFile>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<Version>0.3</Version>
-		<PackageReleaseNotes>
-			New
-			* Simple postman requests generation
-		</PackageReleaseNotes>
+		<Version>0.4</Version>
 
-		<Authors>Alexander Krylkov</Authors>
-		<Product>Simplify</Product>
 		<Description>Postman collection and environment generation extension for Simplify.Web</Description>
+		<Product>Simplify</Product>
+		<Authors>Alexander Krylkov</Authors>
 		<Copyright>Licensed under LGPL</Copyright>
+		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</PackageProjectUrl>
 		<PackageIconUrl>https://raw.githubusercontent.com/SimplifyNet/Images/master/LogoWeb32x32.png</PackageIconUrl>
 		<RepositoryUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</RepositoryUrl>
 		<RepositoryType>GIT</RepositoryType>
 		<PackageTags>Simplify.Web Postman API</PackageTags>
+
+		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web.Postman/tree/master/src/Simplif.Web.Postman/CHANGELOG.md for details</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Simplify.Web" Version="4.4.*" />
 		<PackageReference Include="System.Text.Json" Version="5.0.*" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\images\icon.png" Pack="true" Visible="false" PackagePath="" />
+		<None Include="CHANGELOG.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 </Project>
