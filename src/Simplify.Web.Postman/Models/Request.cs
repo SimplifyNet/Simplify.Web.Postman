@@ -22,5 +22,13 @@ namespace Simplify.Web.Postman.Models
 		/// The URL.
 		/// </value>
 		public Url Url { get; set; }
+
+		/// <summary>
+		/// Gets or sets the body.
+		/// </summary>
+		/// <value>
+		/// The body.
+		/// </value>
+		public Body Body { get; set; }
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using Simplify.Web.Meta;
@@ -13,11 +12,6 @@ namespace Simplify.Web.Postman.PartBuilders
 	/// <seealso cref="ICollectionPartBuilder" />
 	public class CollectionItemsBuilder : ICollectionPartBuilder
 	{
-		/// <summary>
-		/// The base URL path.
-		/// </summary>
-		public const string BaseUrlPath = "{{BaseUrl}}";
-
 		/// <summary>
 		/// Builds the specified model part.
 		/// </summary>
@@ -38,18 +32,10 @@ namespace Simplify.Web.Postman.PartBuilders
 		private static CollectionItem BuildCollectionItem(IControllerMetaData metaData, KeyValuePair<HttpMethod, string> route) =>
 			new()
 			{
-				Name = metaData.ControllerType.Name,
-				Request = new Request
-				{
-					Url = new Url
-					{
-						Host = BaseUrlPath,
-						Path = BuildPathItems(route.Value)
-					},
-					Method = route.Key.ToString().ToUpper()
-				}
+				Name = BuildName(metaData),
+				Request = RequestBuilder.Build(metaData, route)
 			};
 
-		private static IList<string> BuildPathItems(string controllerRoute) => controllerRoute.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+		private static string BuildName(IControllerMetaData metaData) => metaData.ControllerType.Name;
 	}
 }

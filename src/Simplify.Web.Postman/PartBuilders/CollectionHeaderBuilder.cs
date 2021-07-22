@@ -15,10 +15,7 @@ namespace Simplify.Web.Postman.PartBuilders
 		/// Initializes a new instance of the <see cref="CollectionHeaderBuilder"/> class.
 		/// </summary>
 		/// <param name="settings">The settings.</param>
-		public CollectionHeaderBuilder(IPostmanGenerationSettings settings)
-		{
-			_settings = settings;
-		}
+		public CollectionHeaderBuilder(IPostmanGenerationSettings settings) => _settings = settings;
 
 		/// <summary>
 		/// Builds the specified model part.
