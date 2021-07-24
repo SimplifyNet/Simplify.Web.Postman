@@ -21,7 +21,7 @@
 		<RepositoryType>GIT</RepositoryType>
 		<PackageTags>Simplify.Web Postman API</PackageTags>
 
-		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web.Postman/tree/master/src/Simplif.Web.Postman/CHANGELOG.md for details</PackageReleaseNotes>
+		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web.Postman/blob/master/src/Simplify.Web.Postman/CHANGELOG.md for details</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Simplify.Web" Version="4.4.*" />
