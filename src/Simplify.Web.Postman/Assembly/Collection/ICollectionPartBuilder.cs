@@ -1,6 +1,6 @@
-﻿using Simplify.Web.Postman.Models;
+using Simplify.Web.Postman.Models;
 
-namespace Simplify.Web.Postman
+namespace Simplify.Web.Postman.Assembly.Collection
 {
 	/// <summary>
 	/// Provides postman collection part builder

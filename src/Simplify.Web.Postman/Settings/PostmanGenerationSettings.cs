@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+using System;
 
 namespace Simplify.Web.Postman.Settings
 {
@@ -8,7 +7,7 @@ namespace Simplify.Web.Postman.Settings
 	/// </summary>
 	public class PostmanGenerationSettings : IPostmanGenerationSettings
 	{
-		private string _collectionName;
+		private string _projectName;
 		private string _collectionFileName;
 		private string _collectionFileNamePostfix;
 		private string _environmentFileName;
@@ -20,9 +19,9 @@ namespace Simplify.Web.Postman.Settings
 		/// </summary>
 		public PostmanGenerationSettings()
 		{
-			var projectAssemblyName = Assembly.GetEntryAssembly()?.GetName().Name ?? "App";
+			var projectAssemblyName = global::System.Reflection.Assembly.GetEntryAssembly()?.GetName().Name ?? "App";
 
-			_collectionName = projectAssemblyName;
+			_projectName = projectAssemblyName;
 			_collectionFileName = projectAssemblyName;
 			_collectionFileNamePostfix = ".postman_collection";
 			_environmentFileName = projectAssemblyName;
@@ -36,10 +35,10 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The name of the collection.
 		/// </value>
-		public string CollectionName
+		public string ProjectName
 		{
-			get => _collectionName;
-			set => _collectionName = value ?? throw new ArgumentNullException(nameof(value));
+			get => _projectName;
+			set => _projectName = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		/// <summary>

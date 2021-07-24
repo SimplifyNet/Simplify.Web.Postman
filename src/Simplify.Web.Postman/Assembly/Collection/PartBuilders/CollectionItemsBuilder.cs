@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using Simplify.Web.Meta;
 using Simplify.Web.Postman.Models;
 
-namespace Simplify.Web.Postman.PartBuilders
+namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 {
 	/// <summary>
 	/// Provides CollectionItems builder

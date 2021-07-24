@@ -6,4 +6,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Simplify.Web.Postman\Simplify.Web.Postman.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Simplify.Web.Json" Version="2.2.*" />
+	</ItemGroup>
 </Project>

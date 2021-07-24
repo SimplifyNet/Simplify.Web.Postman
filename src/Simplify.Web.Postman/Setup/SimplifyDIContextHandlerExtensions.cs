@@ -1,4 +1,5 @@
-﻿using Simplify.DI;
+using Simplify.DI;
+using Simplify.Web.Postman.Generators;
 
 namespace Simplify.Web.Postman.Setup
 {
@@ -16,7 +17,7 @@ namespace Simplify.Web.Postman.Setup
 		{
 			using var scope = contextHandler.BeginLifetimeScope();
 
-			scope.Resolver.Resolve<PostmanGenerator>().GenerateCollection();
+			scope.Resolver.Resolve<FileBasedPostmanGenerator>().Generate();
 
 			return contextHandler;
 		}
