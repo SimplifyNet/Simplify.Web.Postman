@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Encodings.Web;
 using System.Text.Json;
 using Simplify.Web.Meta;
 using Simplify.Web.Postman.Models;
 
-namespace Simplify.Web.Postman.PartBuilders
+namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 {
 	/// <summary>
 	/// Provides request builder
@@ -26,7 +25,7 @@ namespace Simplify.Web.Postman.PartBuilders
 		public static string BaseUrlPath
 		{
 			get => _baseUrlPath ?? DefaultBaseUrlPath;
-			set => _baseUrlPath = value ?? throw new NotImplementedException(nameof(value));
+			set => _baseUrlPath = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		/// <summary>
@@ -68,6 +67,7 @@ namespace Simplify.Web.Postman.PartBuilders
 
 			return body;
 		}
+
 		private static string BuildRequestJsonData(Type modelType) => JsonSerializer.Serialize(Activator.CreateInstance(modelType), new()
 		{
 			WriteIndented = true

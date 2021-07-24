@@ -1,4 +1,4 @@
-﻿namespace Simplify.Web.Postman.Settings
+namespace Simplify.Web.Postman.Settings
 {
 	/// <summary>
 	///  Represents postman files generation settings

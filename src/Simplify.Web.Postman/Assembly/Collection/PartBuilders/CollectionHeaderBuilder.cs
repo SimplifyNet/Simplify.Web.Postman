@@ -1,7 +1,7 @@
-﻿using Simplify.Web.Postman.Models;
+using Simplify.Web.Postman.Models;
 using Simplify.Web.Postman.Settings;
 
-namespace Simplify.Web.Postman.PartBuilders
+namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 {
 	/// <summary>
 	/// Provides CollectionHeader builder

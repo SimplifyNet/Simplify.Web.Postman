@@ -1,11 +1,13 @@
+using System.Collections.Generic;
+
 #nullable disable
 
 namespace Simplify.Web.Postman.Models
 {
 	/// <summary>
-	/// Provides Postman collection header model
+	/// Provides environment model
 	/// </summary>
-	public class CollectionHeader
+	public class EnvironmentModel
 	{
 		/// <summary>
 		/// Gets or sets the name.
@@ -16,11 +18,11 @@ namespace Simplify.Web.Postman.Models
 		public string Name { get; set; }
 
 		/// <summary>
-		/// Gets or sets the schema.
+		/// Gets or sets the values.
 		/// </summary>
 		/// <value>
-		/// The schema.
+		/// The values.
 		/// </value>
-		public string Schema { get; set; } = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json";
+		public IDictionary<string, string> Values { get; set; }
 	}
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using Simplify.Web.Meta;
 using Simplify.Web.Postman.Models;
 
-namespace Simplify.Web.Postman.PartBuilders
+namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 {
 	/// <summary>
 	/// Provides CollectionItems builder
@@ -33,7 +31,7 @@ namespace Simplify.Web.Postman.PartBuilders
 			new()
 			{
 				Name = BuildName(metaData),
-				Request = RequestBuilder.Build(metaData, route)
+					Request = RequestBuilder.Build(metaData, route)
 			};
 
 		private static string BuildName(IControllerMetaData metaData) => metaData.ControllerType.Name;
