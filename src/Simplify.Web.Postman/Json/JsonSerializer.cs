@@ -16,7 +16,7 @@ namespace Simplify.Web.Postman.Json
 			global::System.Text.Json.JsonSerializer.Serialize(model, new JsonSerializerOptions
 			{
 				PropertyNamingPolicy = new LowerCamelCasePolicy(),
-					WriteIndented = true
+				WriteIndented = true
 			});
 	}
 }

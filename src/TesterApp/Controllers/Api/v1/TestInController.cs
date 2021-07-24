@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Simplify.Web;
 using Simplify.Web.Attributes;
 using TesterApp.ViewModels;

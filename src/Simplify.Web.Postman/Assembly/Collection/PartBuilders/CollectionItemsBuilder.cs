@@ -31,7 +31,7 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 			new()
 			{
 				Name = BuildName(metaData),
-					Request = RequestBuilder.Build(metaData, route)
+				Request = RequestBuilder.Build(metaData, route)
 			};
 
 		private static string BuildName(IControllerMetaData metaData) => metaData.ControllerType.Name;

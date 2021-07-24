@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System;
 using Simplify.Web.Postman.Models;
 using Simplify.Web.Postman.Settings;
 
