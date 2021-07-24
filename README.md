@@ -12,7 +12,23 @@
 
 ## Quick Start
 
-Add `GeneratePostmanData` after Simplify registration and container setup
+1. Add `RegisterSimplifyWebPostman` to IOC container registrations.
+
+```csharp
+public static class IocRegistrations
+{
+	public static IDIContainerProvider RegisterAll(this IDIContainerProvider containerProvider)
+	{
+		containerProvider.RegisterSimplifyWeb()
+			.RegisterJsonModelBinder()
+			.RegisterSimplifyWebPostman();
+
+		return containerProvider;
+	}
+}
+```
+
+2. Add `GeneratePostmanData` after Simplify registration and container setup
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
