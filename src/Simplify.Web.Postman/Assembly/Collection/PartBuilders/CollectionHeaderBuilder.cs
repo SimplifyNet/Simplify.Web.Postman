@@ -24,7 +24,7 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 		public void Build(CollectionModel model) =>
 			model.Header = new CollectionHeader
 			{
-				Name = _settings.CollectionName
+				Name = _settings.ProjectName
 			};
 	}
 }

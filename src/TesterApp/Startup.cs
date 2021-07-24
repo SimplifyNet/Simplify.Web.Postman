@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Simplify.DI;
 using Simplify.Web;
+using Simplify.Web.Json.Model.Binding;
+using Simplify.Web.Model;
 using Simplify.Web.Postman.Setup;
 using TesterApp.Setup;
 
@@ -15,6 +17,8 @@ namespace TesterApp
 		{
 			if (env.IsDevelopment())
 				app.UseDeveloperExceptionPage();
+
+			HttpModelHandler.RegisterModelBinder<JsonModelBinder>();
 
 			app.UseSimplifyWebWithoutRegistrations();
 

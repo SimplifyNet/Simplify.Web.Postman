@@ -6,12 +6,12 @@ namespace Simplify.Web.Postman.Settings
 	public interface IPostmanGenerationSettings
 	{
 		/// <summary>
-		/// Gets or sets the name of the collection.
+		/// Gets or sets the name of the project.
 		/// </summary>
 		/// <value>
-		/// The name of the collection.
+		/// The name of the project.
 		/// </value>
-		string CollectionName { get; }
+		string ProjectName { get; }
 
 		/// <summary>
 		/// Gets or sets the name of the collection file.

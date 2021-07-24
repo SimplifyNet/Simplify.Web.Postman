@@ -33,6 +33,6 @@ namespace Simplify.Web.Postman.Generators
 		public void Generate() => _exporter.Export(_builder.Create(), GenerateFileName());
 
 		private string GenerateFileName() =>
-			Path.Combine(_settings.CollectionFileName + _settings.CollectionFileNamePostfix + ".json");
+			Path.Combine(_settings.EnvironmentFileName + _settings.EnvironmentFileNamePostfix + ".json");
 	}
 }

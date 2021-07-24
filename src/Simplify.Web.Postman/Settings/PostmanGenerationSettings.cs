@@ -7,7 +7,7 @@ namespace Simplify.Web.Postman.Settings
 	/// </summary>
 	public class PostmanGenerationSettings : IPostmanGenerationSettings
 	{
-		private string _collectionName;
+		private string _projectName;
 		private string _collectionFileName;
 		private string _collectionFileNamePostfix;
 		private string _environmentFileName;
@@ -21,7 +21,7 @@ namespace Simplify.Web.Postman.Settings
 		{
 			var projectAssemblyName = global::System.Reflection.Assembly.GetEntryAssembly()?.GetName().Name ?? "App";
 
-			_collectionName = projectAssemblyName;
+			_projectName = projectAssemblyName;
 			_collectionFileName = projectAssemblyName;
 			_collectionFileNamePostfix = ".postman_collection";
 			_environmentFileName = projectAssemblyName;
@@ -35,11 +35,10 @@ namespace Simplify.Web.Postman.Settings
 		/// <value>
 		/// The name of the collection.
 		/// </value>
-		public string CollectionName
+		public string ProjectName
 		{
-			get => _collectionName;
-			set => _collectionName = value ??
-				throw new ArgumentNullException(nameof(value));
+			get => _projectName;
+			set => _projectName = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		/// <summary>
@@ -51,8 +50,7 @@ namespace Simplify.Web.Postman.Settings
 		public string CollectionFileName
 		{
 			get => _collectionFileName;
-			set => _collectionFileName = value ??
-				throw new ArgumentNullException(nameof(value));
+			set => _collectionFileName = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		/// <summary>
@@ -64,8 +62,7 @@ namespace Simplify.Web.Postman.Settings
 		public string CollectionFileNamePostfix
 		{
 			get => _collectionFileNamePostfix;
-			set => _collectionFileNamePostfix = value ??
-				throw new ArgumentNullException(nameof(value));
+			set => _collectionFileNamePostfix = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		/// <summary>
@@ -77,8 +74,7 @@ namespace Simplify.Web.Postman.Settings
 		public string EnvironmentFileName
 		{
 			get => _environmentFileName;
-			set => _environmentFileName = value ??
-				throw new ArgumentNullException(nameof(value));
+			set => _environmentFileName = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		/// <summary>
@@ -90,8 +86,7 @@ namespace Simplify.Web.Postman.Settings
 		public string EnvironmentFileNamePostfix
 		{
 			get => _environmentFileNamePostfix;
-			set => _environmentFileNamePostfix = value ??
-				throw new ArgumentNullException(nameof(value));
+			set => _environmentFileNamePostfix = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		/// <summary>
@@ -103,8 +98,7 @@ namespace Simplify.Web.Postman.Settings
 		public string GenerationFolderPath
 		{
 			get => _generationFolderPath;
-			set => _generationFolderPath = value ??
-				throw new ArgumentNullException(nameof(value));
+			set => _generationFolderPath = value ?? throw new ArgumentNullException(nameof(value));
 		}
 	}
 }

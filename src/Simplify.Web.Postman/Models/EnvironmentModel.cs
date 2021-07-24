@@ -23,6 +23,6 @@ namespace Simplify.Web.Postman.Models
 		/// <value>
 		/// The values.
 		/// </value>
-		public IDictionary<string, string> Values { get; set; }
+		public IList<PostmanValue> Values { get; set; }
 	}
 }
