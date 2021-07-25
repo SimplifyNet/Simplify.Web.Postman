@@ -45,4 +45,4 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Postman files will generate in postman folder inside your app folder.
+Postman files will be generated in `postman` folder inside your app folder.
