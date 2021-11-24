@@ -6,7 +6,7 @@
 		"type": "coreclr",
 		"request": "launch",
 		"preLaunchTask": "Build",
-		"program": "${workspaceFolder}/src/TesterApp/bin/Debug/net5.0/TesterApp.dll",
+		"program": "${workspaceFolder}/src/TesterApp/bin/Debug/net6.0/TesterApp.dll",
 		"cwd": "${workspaceFolder}/src/TesterApp",
 		"internalConsoleOptions": "openOnSessionStart",
 		"env":
