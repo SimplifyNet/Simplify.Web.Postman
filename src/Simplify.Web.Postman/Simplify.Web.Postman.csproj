@@ -8,7 +8,7 @@
 		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<Version>1.0-pre01</Version>
+		<Version>1.0-pre02</Version>
 
 		<Description>Postman collection and environment generation extension for Simplify.Web</Description>
 		<Product>Simplify</Product>
