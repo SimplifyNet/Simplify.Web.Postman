@@ -68,7 +68,7 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 			return body;
 		}
 
-		private static string BuildRequestJsonData(Type modelType) => JsonSerializer.Serialize(Activator.CreateInstance(modelType), new()
+		private static string BuildRequestJsonData(Type modelType) => JsonSerializer.Serialize(Activator.CreateInstance(modelType), new JsonSerializerOptions
 		{
 			WriteIndented = true
 		});
