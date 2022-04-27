@@ -2,8 +2,7 @@
 
 [![Nuget Version](https://img.shields.io/nuget/v/Simplify.Web.Postman)](https://www.nuget.org/packages/Simplify.Web.Postman/)
 [![Nuget Download](https://img.shields.io/nuget/dt/Simplify.Web.Postman)](https://www.nuget.org/packages/Simplify.Web.Postman/)
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/i4004/simplify-web-postman/master)](https://ci.appveyor.com/project/i4004/simplify-web-postman)
-[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/nuget/Simplify.Web.Postman)](https://libraries.io/nuget/Simplify.Web.Postman)
+[![Build Package](https://github.com/SimplifyNet/Simplify.Web.Postman/actions/workflows/build.yml/badge.svg)](https://github.com/SimplifyNet/Simplify.Web.Postman/actions/workflows/build.yml)[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/nuget/Simplify.Web.Postman)](https://libraries.io/nuget/Simplify.Web.Postman)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/SimplifyNet/Simplify.Web.Postman)](https://www.codefactor.io/repository/github/simplifynet/Simplify.Web.Postman)
 ![Platform](https://img.shields.io/badge/platform-.NET%20Standard%202.0-lightgrey)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](http://makeapullrequest.com)
@@ -17,14 +16,14 @@
 ```csharp
 public static class IocRegistrations
 {
-	public static IDIContainerProvider RegisterAll(this IDIContainerProvider containerProvider)
-	{
-		containerProvider.RegisterSimplifyWeb()
-			.RegisterJsonModelBinder()
-			.RegisterSimplifyWebPostman();
+ public static IDIContainerProvider RegisterAll(this IDIContainerProvider containerProvider)
+ {
+  containerProvider.RegisterSimplifyWeb()
+   .RegisterJsonModelBinder()
+   .RegisterSimplifyWebPostman();
 
-		return containerProvider;
-	}
+  return containerProvider;
+ }
 }
 ```
 
@@ -33,15 +32,15 @@ public static class IocRegistrations
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
-	if (env.IsDevelopment())
-		app.UseDeveloperExceptionPage();
+ if (env.IsDevelopment())
+  app.UseDeveloperExceptionPage();
 
-	app.UseSimplifyWebWithoutRegistrations();
+ app.UseSimplifyWebWithoutRegistrations();
 
-	DIContainer.Current.RegisterAll().Verify();
+ DIContainer.Current.RegisterAll().Verify();
 
-	if (env.IsDevelopment())
-		DIContainer.Current.GeneratePostmanData();
+ if (env.IsDevelopment())
+  DIContainer.Current.GeneratePostmanData();
 }
 ```
 
