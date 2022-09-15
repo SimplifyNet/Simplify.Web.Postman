@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0</TargetFrameworks>
-		<LangVersion>9.0</LangVersion>
+		<LangVersion>10.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<Version>1.0-pre02</Version>
+		<Version>1.0-pre03</Version>
 
 		<Description>Postman collection and environment generation extension for Simplify.Web</Description>
 		<Product>Simplify</Product>
@@ -24,8 +24,8 @@
 		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web.Postman/blob/master/src/Simplify.Web.Postman/CHANGELOG.md for details</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Simplify.Web" Version="4.6.*" />
-		<PackageReference Include="System.Text.Json" Version="6.0.*" />
+		<PackageReference Include="Simplify.Web" Version="4.6.0" />
+		<PackageReference Include="System.Text.Json" Version="6.0.6" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\..\images\icon.png" Pack="true" Visible="false" PackagePath="" />

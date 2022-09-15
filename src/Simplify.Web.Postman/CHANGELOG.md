@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0-pre03] - 2022-09-15
+
+### Dependencies
+
+- Simplify.Web bump to 4.6
+- System.Text.Json to 6.0.6
+
 ## [1.0-pre02] - 2021-11-24
 
 ### Dependencies
