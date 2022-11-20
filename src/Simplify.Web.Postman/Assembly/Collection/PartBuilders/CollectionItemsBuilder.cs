@@ -30,8 +30,10 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 
 		private static void BuildCollectionItems(CollectionItem currentLevelContainer, int currentLevel, CollectionItem item)
 		{
-			// If recursion reached request level
-			if (currentLevel == item.Request.Url.Path.Count - 1)
+			var path = item.Request.Url.Path;
+
+			// If recursion reached request level or reached route parameter
+			if (currentLevel == path.Count - 1 || path[currentLevel].StartsWith("{"))
 			{
 				if (currentLevelContainer.Items == null)
 					currentLevelContainer.Items = new List<CollectionItem>();
@@ -42,7 +44,7 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 
 			// If path recursion not reached request level
 
-			var containerName = item.Request.Url.Path[currentLevel];
+			var containerName = path[currentLevel];
 
 			var container = currentLevelContainer.Items.FirstOrDefault(x => x.Name == containerName);
 
