@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Simplify.Web.Meta;
 using Simplify.Web.Postman.Models;
 
@@ -23,11 +24,39 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 					continue;
 
 				foreach (var route in item.ExecParameters!.Routes)
-					model.Items.Add(BuildCollectionItem(item, route));
+					BuildCollectionItems(model, 0, BuildRequestCollectionItem(item, route));
 			}
 		}
 
-		private static CollectionItem BuildCollectionItem(IControllerMetaData metaData, KeyValuePair<HttpMethod, string> route) =>
+		private static void BuildCollectionItems(CollectionItem currentLevelContainer, int currentLevel, CollectionItem item)
+		{
+			// If recursion reached request level
+			if (currentLevel == item.Request.Url.Path.Count - 1)
+			{
+				if (currentLevelContainer.Items == null)
+					currentLevelContainer.Items = new List<CollectionItem>();
+
+				currentLevelContainer.Items.Add(item);
+				return;
+			}
+
+			// If path recursion not reached request level
+
+			var containerName = item.Request.Url.Path[currentLevel];
+
+			var container = currentLevelContainer.Items.FirstOrDefault(x => x.Name == containerName);
+
+			if (container == null)
+				currentLevelContainer.Items.Add(container = new CollectionItem
+				{
+					Name = containerName,
+					Items = new List<CollectionItem>()
+				});
+
+			BuildCollectionItems(container, currentLevel + 1, item);
+		}
+
+		private static CollectionItem BuildRequestCollectionItem(IControllerMetaData metaData, KeyValuePair<HttpMethod, string> route) =>
 			new()
 			{
 				Name = BuildName(metaData),

@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Simplify.Web.Postman.Json
 {
@@ -16,7 +17,8 @@ namespace Simplify.Web.Postman.Json
 			global::System.Text.Json.JsonSerializer.Serialize(model, new JsonSerializerOptions
 			{
 				PropertyNamingPolicy = new LowerCamelCasePolicy(),
-				WriteIndented = true
+				WriteIndented = true,
+				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
 			});
 	}
 }

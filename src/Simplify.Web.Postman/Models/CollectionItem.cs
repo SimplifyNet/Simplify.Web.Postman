@@ -1,5 +1,8 @@
 #nullable disable
 
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
 namespace Simplify.Web.Postman.Models
 {
 	/// <summary>
@@ -22,5 +25,14 @@ namespace Simplify.Web.Postman.Models
 		/// The request.
 		/// </value>
 		public Request Request { get; set; }
+
+		/// <summary>
+		/// Gets or sets the items.
+		/// </summary>
+		/// <value>
+		/// The items.
+		/// </value>
+		[JsonPropertyName("item")]
+		public IList<CollectionItem> Items { get; set; }
 	}
 }
