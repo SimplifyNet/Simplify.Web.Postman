@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0-pre04] - 2022-11-20
+
+### Added
+
+- Requests folders structure in postman should reflect controller route structure (#19)
+- .NET 6 targeting
+
 ## [1.0-pre03] - 2022-09-15
 
 ### Dependencies
