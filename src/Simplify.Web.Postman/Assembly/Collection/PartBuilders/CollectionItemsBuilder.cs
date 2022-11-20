@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Simplify.Web.Meta;
 using Simplify.Web.Postman.Models;
@@ -33,7 +34,7 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 			var path = item.Request.Url.Path;
 
 			// If recursion reached request level or reached route parameter
-			if (currentLevel == path.Count - 1 || path[currentLevel].StartsWith("{"))
+			if (currentLevel == path.Count || path[currentLevel].StartsWith("{"))
 			{
 				if (currentLevelContainer.Items == null)
 					currentLevelContainer.Items = new List<CollectionItem>();
@@ -44,16 +45,21 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 
 			// If path recursion not reached request level
 
-			var containerName = path[currentLevel];
+			var containerName = BuildContainerName(path[currentLevel]);
 
-			var container = currentLevelContainer.Items.FirstOrDefault(x => x.Name == containerName);
+			var container = currentLevelContainer.Items?.FirstOrDefault(x => x.Name == containerName);
 
 			if (container == null)
+			{
+				if (currentLevelContainer.Items == null)
+					currentLevelContainer.Items = new List<CollectionItem>();
+
 				currentLevelContainer.Items.Add(container = new CollectionItem
 				{
 					Name = containerName,
 					Items = new List<CollectionItem>()
 				});
+			}
 
 			BuildCollectionItems(container, currentLevel + 1, item);
 		}
@@ -61,10 +67,11 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 		private static CollectionItem BuildRequestCollectionItem(IControllerMetaData metaData, KeyValuePair<HttpMethod, string> route) =>
 			new()
 			{
-				Name = BuildName(metaData),
+				Name = BuildRequestName(metaData),
 				Request = RequestBuilder.Build(metaData, route)
 			};
 
-		private static string BuildName(IControllerMetaData metaData) => metaData.ControllerType.Name;
+		private static string BuildRequestName(IControllerMetaData metaData) => metaData.ControllerType.Name.Replace("Controller", "");
+		private static string BuildContainerName(string urlPart) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(urlPart.ToLower());
 	}
 }
