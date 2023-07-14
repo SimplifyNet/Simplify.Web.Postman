@@ -27,6 +27,14 @@ namespace Simplify.Web.Postman.Models
 		public Request Request { get; set; }
 
 		/// <summary>
+		/// Gets or sets the events list.
+		/// </summary>
+		/// <value>
+		/// The request.
+		/// </value>
+		public IList<Event> Event { get; set; }
+
+		/// <summary>
 		/// Gets or sets the items.
 		/// </summary>
 		/// <value>
