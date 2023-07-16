@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0] - 2023-07-16
+
+### Added
+
+- Simple controller tests generation (#5)
+
 ## [1.0-pre04] - 2022-11-20
 
 ### Added
