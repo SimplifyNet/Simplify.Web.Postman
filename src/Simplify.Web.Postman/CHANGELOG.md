@@ -6,6 +6,10 @@
 
 - Simple controller tests generation (#5)
 
+### Dependencies
+
+- System.Text.Json bump to 7.0.3 (PR#28)
+
 ## [1.0-pre04] - 2022-11-20
 
 ### Added
