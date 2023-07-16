@@ -49,7 +49,7 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 
 		private static Body? TryBuildBody(IControllerMetaData metaData)
 		{
-			if (metaData.ControllerType.BaseType.GenericTypeArguments.Length == 0)
+			if (metaData.ControllerType.BaseType!.GenericTypeArguments.Length == 0)
 				return null;
 
 			var body = new Body()

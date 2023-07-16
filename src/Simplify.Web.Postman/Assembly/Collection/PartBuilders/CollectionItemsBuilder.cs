@@ -68,7 +68,8 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 			new()
 			{
 				Name = BuildRequestName(metaData),
-				Request = RequestBuilder.Build(metaData, route)
+				Request = RequestBuilder.Build(metaData, route),
+				Event = new List<Models.Event> { BasicTestsBuilder.Build() }
 			};
 
 		private static string BuildRequestName(IControllerMetaData metaData) => metaData.ControllerType.Name.Replace("Controller", "");
