@@ -68,9 +68,28 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
 			return body;
 		}
 
-		private static string BuildRequestJsonData(Type modelType) => JsonSerializer.Serialize(Activator.CreateInstance(modelType), new JsonSerializerOptions
+		private static string BuildRequestJsonData(Type modelType) => JsonSerializer.Serialize(CreateObject(modelType), new JsonSerializerOptions
 		{
 			WriteIndented = true
 		});
+
+		private static object? CreateObject(Type modelType)
+		{
+			if (IsGenericList(modelType))
+				modelType = ConstructGenericListTypeFromGenericIList(modelType);
+
+			return Activator.CreateInstance(modelType);
+		}
+
+		private static bool IsGenericList(Type type) => type.IsGenericType && typeof(IList<>).IsAssignableFrom(type.GetGenericTypeDefinition());
+
+		private static Type ConstructGenericListTypeFromGenericIList(Type sourceListType)
+		{
+			var type = typeof(List<>);
+
+			Type[] typeArgs = { sourceListType.GetGenericArguments()[0] };
+
+			return type.MakeGenericType(typeArgs);
+		}
 	}
 }
