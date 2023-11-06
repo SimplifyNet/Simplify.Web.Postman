@@ -5,6 +5,7 @@ using Simplify.Web;
 using Simplify.Web.Attributes;
 using Simplify.Web.Json.Responses;
 using TesterApp.ViewModels;
+using TesterApp.ViewModels.Users;
 
 namespace TesterApp.Controllers.Api.v1.Users;
 

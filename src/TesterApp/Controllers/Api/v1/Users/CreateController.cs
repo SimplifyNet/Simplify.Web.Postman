@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Simplify.Web;
 using Simplify.Web.Attributes;
-using TesterApp.ViewModels;
+using TesterApp.ViewModels.Users;
 
 namespace TesterApp.Controllers.Api.v1.Users;
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TesterApp.ViewModels
+namespace TesterApp.ViewModels.Users
 {
 	public class UserViewModel
 	{
