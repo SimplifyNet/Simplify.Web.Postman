@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1] - 2023-11-07
+
+### Fixed
+
+- Cannot dynamically create an instance of type array (#31)
+
+### Added
+
+- Generate request bodies for list/array properties (#32)
+
 ## [1.0] - 2023-07-16
 
 ### Added
