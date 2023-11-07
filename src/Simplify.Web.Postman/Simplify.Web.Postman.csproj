@@ -24,7 +24,7 @@
 		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web.Postman/blob/master/src/Simplify.Web.Postman/CHANGELOG.md for details</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Simplify.Web" Version="4.7.0" />
+		<PackageReference Include="Simplify.Web" Version="4.7.1" />
 		<PackageReference Include="System.Text.Json" Version="7.0.3" />
 	</ItemGroup>
 	<ItemGroup>
