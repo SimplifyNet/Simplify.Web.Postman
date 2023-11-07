@@ -2,20 +2,19 @@
 
 using System.Text.Json.Serialization;
 
-namespace Simplify.Web.Postman.Models
+namespace Simplify.Web.Postman.Models;
+
+/// <summary>
+/// Provides Postman collection model
+/// </summary>
+public class CollectionModel : CollectionItem
 {
 	/// <summary>
-	/// Provides Postman collection model
+	/// Gets or sets the header.
 	/// </summary>
-	public class CollectionModel : CollectionItem
-	{
-		/// <summary>
-		/// Gets or sets the header.
-		/// </summary>
-		/// <value>
-		/// The header.
-		/// </value>
-		[JsonPropertyName("info")]
-		public CollectionHeader Header { get; set; }
-	}
+	/// <value>
+	/// The header.
+	/// </value>
+	[JsonPropertyName("info")]
+	public CollectionHeader Header { get; set; }
 }

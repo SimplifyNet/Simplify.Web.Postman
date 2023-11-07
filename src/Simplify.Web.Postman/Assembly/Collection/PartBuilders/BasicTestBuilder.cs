@@ -1,28 +1,27 @@
 using System.Collections.Generic;
 using Simplify.Web.Postman.Models;
 
-namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders
+namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders;
+
+/// <summary>
+/// Provides basic tests builder
+/// </summary>
+/// <seealso cref="ICollectionPartBuilder" />
+public static class BasicTestsBuilder
 {
 	/// <summary>
-	/// Provides basic tests builder
+	/// Builds the basic test.
 	/// </summary>
-	/// <seealso cref="ICollectionPartBuilder" />
-	public static class BasicTestsBuilder
+	public static Event Build()
 	{
-		/// <summary>
-		/// Builds the basic test.
-		/// </summary>
-		public static Event Build()
+		return new Event
 		{
-			return new Event
+			Listen = "test",
+			Script = new Script
 			{
-				Listen = "test",
-				Script = new Script
-				{
-					Exec = new List<string> { "tests[\"HTTP Code Test\"] = pm.expect(pm.response.code).to.be.oneOf([200, 204]);" },
-					Type = "text/javascript"
-				}
-			};
-		}
+				Exec = new List<string> { "tests[\"HTTP Code Test\"] = pm.expect(pm.response.code).to.be.oneOf([200, 204]);" },
+				Type = "text/javascript"
+			}
+		};
 	}
 }

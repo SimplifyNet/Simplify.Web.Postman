@@ -1,25 +1,24 @@
 using Simplify.DI;
 using Simplify.Web.Postman.Generators;
 
-namespace Simplify.Web.Postman.Setup
+namespace Simplify.Web.Postman.Setup;
+
+/// <summary>
+/// Provides Simplify.DI Simplify.Web.Postman generation extensions
+/// </summary>
+public static class SimplifyDIContextHandlerExtensions
 {
 	/// <summary>
-	/// Provides Simplify.DI Simplify.Web.Postman generation extensions
+	/// Generates the postman data using Simplify.Web.Postman.
 	/// </summary>
-	public static class SimplifyDIContextHandlerExtensions
+	/// <param name="contextHandler">The context handler.</param>
+	/// <returns></returns>
+	public static IDIContextHandler GeneratePostmanData(this IDIContextHandler contextHandler)
 	{
-		/// <summary>
-		/// Generates the postman data using Simplify.Web.Postman.
-		/// </summary>
-		/// <param name="contextHandler">The context handler.</param>
-		/// <returns></returns>
-		public static IDIContextHandler GeneratePostmanData(this IDIContextHandler contextHandler)
-		{
-			using var scope = contextHandler.BeginLifetimeScope();
+		using var scope = contextHandler.BeginLifetimeScope();
 
-			scope.Resolver.Resolve<FileBasedPostmanGenerator>().Generate();
+		scope.Resolver.Resolve<FileBasedPostmanGenerator>().Generate();
 
-			return contextHandler;
-		}
+		return contextHandler;
 	}
 }

@@ -1,13 +1,12 @@
 ﻿using Simplify.Web.Model.Validation.Attributes;
 
-namespace TesterApp.ViewModels.Users
-{
-	public class UserAddViewModel
-	{
-		[Required]
-		public string UserName { get; set; }
+namespace TesterApp.ViewModels.Users;
 
-		[Required]
-		public string Password { get; set; }
-	}
+public class UserAddViewModel
+{
+	[Required]
+	public string UserName { get; set; }
+
+	[Required]
+	public string Password { get; set; }
 }

@@ -1,7 +1,6 @@
-﻿namespace TesterApp.ViewModels.Grous
+﻿namespace TesterApp.ViewModels.Grous;
+
+public class GroupViewModel
 {
-	public class GroupViewModel
-	{
-		public string Name { get; set; }
-	}
+	public string Name { get; set; }
 }

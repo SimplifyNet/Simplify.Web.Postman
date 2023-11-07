@@ -9,28 +9,27 @@ using Simplify.Web.Model;
 using Simplify.Web.Postman.Setup;
 using TesterApp.Setup;
 
-namespace TesterApp
+namespace TesterApp;
+
+public class Startup
 {
-	public class Startup
+	public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 	{
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-		{
-			if (env.IsDevelopment())
-				app.UseDeveloperExceptionPage();
+		if (env.IsDevelopment())
+			app.UseDeveloperExceptionPage();
 
-			HttpModelHandler.RegisterModelBinder<JsonModelBinder>();
+		HttpModelHandler.RegisterModelBinder<JsonModelBinder>();
 
-			app.UseSimplifyWebWithoutRegistrations();
+		app.UseSimplifyWebWithoutRegistrations();
 
-			if (env.IsDevelopment())
-				DIContainer.Current.GeneratePostmanData();
-		}
+		if (env.IsDevelopment())
+			DIContainer.Current.GeneratePostmanData();
+	}
 
-		public void ConfigureServices(IServiceCollection services) => InitializeContainer();
+	public void ConfigureServices(IServiceCollection services) => InitializeContainer();
 
-		private static void InitializeContainer() =>
-			DIContainer.Current
+	private static void InitializeContainer() =>
+		DIContainer.Current
 			.RegisterAll()
 			.Verify();
-	}
 }
