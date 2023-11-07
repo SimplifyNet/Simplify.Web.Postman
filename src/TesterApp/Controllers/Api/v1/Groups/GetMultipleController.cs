@@ -4,7 +4,7 @@ using Simplify.Web;
 using Simplify.Web.Attributes;
 using Simplify.Web.Json.Responses;
 using TesterApp.ViewModels;
-using TesterApp.ViewModels.Grous;
+using TesterApp.ViewModels.Groups;
 
 namespace TesterApp.Controllers.Api.v1.Groups;
 

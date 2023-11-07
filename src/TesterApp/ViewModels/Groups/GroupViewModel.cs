@@ -1,4 +1,4 @@
-﻿namespace TesterApp.ViewModels.Grous;
+﻿namespace TesterApp.ViewModels.Groups;
 
 public class GroupViewModel
 {
