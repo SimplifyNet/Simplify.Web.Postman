@@ -68,17 +68,24 @@ public static class RequestBuilder
 		return body;
 	}
 
-	private static string BuildRequestJsonData(Type modelType) => JsonSerializer.Serialize(CreateObject(modelType), new JsonSerializerOptions
+	private static string BuildRequestJsonData(Type modelType)
 	{
-		WriteIndented = true
-	});
+		var model = CreateObject(modelType);
 
-	private static object? CreateObject(Type modelType)
+		InitializeListsSingleEmptyValues(model);
+
+		return JsonSerializer.Serialize(model, new JsonSerializerOptions
+		{
+			WriteIndented = true
+		});
+	}
+
+	private static object CreateObject(Type modelType)
 	{
 		if (IsGenericList(modelType))
 			modelType = ConstructGenericListTypeFromGenericIList(modelType);
 
-		return Activator.CreateInstance(modelType);
+		return Activator.CreateInstance(modelType) ?? throw new InvalidOperationException("Error creating model.");
 	}
 
 	private static bool IsGenericList(Type type) => type.IsGenericType && typeof(IList<>).IsAssignableFrom(type.GetGenericTypeDefinition());
@@ -90,5 +97,26 @@ public static class RequestBuilder
 		Type[] typeArgs = { sourceListType.GetGenericArguments()[0] };
 
 		return type.MakeGenericType(typeArgs);
+	}
+
+	private static void InitializeListsSingleEmptyValues(object model)
+	{
+		var type = model.GetType();
+
+		foreach (var propertyInfo in type.GetProperties())
+		{
+			if (!IsGenericList(propertyInfo.PropertyType))
+				continue;
+
+			var listObjectType = propertyInfo.PropertyType.GetGenericArguments()[0];
+			var emptyListType = ConstructGenericListTypeFromGenericIList(propertyInfo.PropertyType);
+
+			var emptyList = Activator.CreateInstance(emptyListType);
+			var emptyItem = Activator.CreateInstance(listObjectType);
+
+			emptyListType.GetMethod("Add")!.Invoke(emptyList, new[] { emptyItem });
+
+			propertyInfo.SetValue(model, emptyList);
+		}
 	}
 }
