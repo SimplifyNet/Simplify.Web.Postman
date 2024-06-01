@@ -7,22 +7,18 @@ namespace Simplify.Web.Postman.Assembly.Collection;
 /// <summary>
 /// Provides postman collection model builder
 /// </summary>
-public class CollectionBuilder
+/// <remarks>
+/// Initializes a new instance of the <see cref="CollectionBuilder" /> class.
+/// </remarks>
+/// <param name="partBuilders">The part builders.</param>
+/// <exception cref="ArgumentNullException">partBuilders</exception>
+public class CollectionBuilder(IList<ICollectionPartBuilder> partBuilders)
 {
-	private readonly IList<ICollectionPartBuilder> _partBuilders;
-
-	/// <summary>
-	/// Initializes a new instance of the <see cref="CollectionBuilder"/> class.
-	/// </summary>
-	/// <param name="partBuilders">The part builders.</param>
-	/// <exception cref="ArgumentNullException">partBuilders</exception>
-	public CollectionBuilder(IList<ICollectionPartBuilder> partBuilders) =>
-		_partBuilders = partBuilders ?? throw new ArgumentNullException(nameof(partBuilders));
+	private readonly IList<ICollectionPartBuilder> _partBuilders = partBuilders ?? throw new ArgumentNullException(nameof(partBuilders));
 
 	/// <summary>
 	/// Builds the collection model.
 	/// </summary>
-	/// <returns></returns>
 	public CollectionModel Create()
 	{
 		var model = new CollectionModel();

@@ -12,7 +12,6 @@ public class JsonSerializer
 	/// Serializes the specified model.
 	/// </summary>
 	/// <param name="model">The model.</param>
-	/// <returns></returns>
 	public string Serialize(object model) =>
 		global::System.Text.Json.JsonSerializer.Serialize(model, new JsonSerializerOptions
 		{

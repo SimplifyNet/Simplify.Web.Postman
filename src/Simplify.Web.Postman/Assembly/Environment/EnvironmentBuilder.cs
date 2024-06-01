@@ -6,16 +6,12 @@ namespace Simplify.Web.Postman.Assembly.Environment;
 /// <summary>
 /// Provides postman environment model builder
 /// </summary>
-public class EnvironmentBuilder
+/// <remarks>
+/// Initializes a new instance of the <see cref="EnvironmentBuilder" /> class.
+/// </remarks>
+/// <param name="settings">The settings.</param>
+public class EnvironmentBuilder(IPostmanGenerationSettings settings)
 {
-	private readonly IPostmanGenerationSettings _settings;
-
-	/// <summary>
-	/// Initializes a new instance of the <see cref="EnvironmentBuilder"/> class.
-	/// </summary>
-	/// <param name="settings">The settings.</param>
-	public EnvironmentBuilder(IPostmanGenerationSettings settings) => _settings = settings;
-
 	/// <summary>
 	/// Creates this environment model.
 	/// </summary>
@@ -23,7 +19,7 @@ public class EnvironmentBuilder
 	public EnvironmentModel Create() =>
 		new()
 		{
-			Name = _settings.ProjectName,
+			Name = settings.ProjectName,
 			Values =
 			[
 				new PostmanValue

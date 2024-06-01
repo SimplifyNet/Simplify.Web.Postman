@@ -35,7 +35,11 @@ public class CollectionItemsBuilder : ICollectionPartBuilder
 			var path = item.Request.Url.Path;
 
 			// If recursion reached request level or reached route parameter
+#if NETSTANDARD2_0
 			if (currentLevel == path.Count || path[currentLevel].StartsWith("{"))
+#else
+			if (currentLevel == path.Count || path[currentLevel].StartsWith('{'))
+#endif
 			{
 				currentLevelContainer.Items ??= [];
 

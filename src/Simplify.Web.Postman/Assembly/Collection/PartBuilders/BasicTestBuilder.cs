@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Simplify.Web.Postman.Models;
 
 namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders;
@@ -19,7 +18,7 @@ public static class BasicTestsBuilder
 			Listen = "test",
 			Script = new Script
 			{
-				Exec = new List<string> { "tests[\"HTTP Code Test\"] = pm.expect(pm.response.code).to.be.oneOf([200, 204]);" },
+				Exec = ["tests[\"HTTP Code Test\"] = pm.expect(pm.response.code).to.be.oneOf([200, 204]);"],
 				Type = "text/javascript"
 			}
 		};

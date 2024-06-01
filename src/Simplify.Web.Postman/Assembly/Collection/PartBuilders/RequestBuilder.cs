@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
 using Simplify.Web.Controllers.Meta;
 using Simplify.Web.Controllers.Meta.Routing;
@@ -47,7 +46,7 @@ public static class RequestBuilder
 			Body = TryBuildBody(metaData)
 		};
 
-	private static IList<string> BuildPath(string controllerRoute) => controllerRoute.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+	private static IList<string> BuildPath(string controllerRoute) => [.. controllerRoute.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)];
 
 	private static Body? TryBuildBody(IControllerMetadata metaData)
 	{

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Simplify.DI;
 using Simplify.Web.Modules.ApplicationEnvironment;
 using Simplify.Web.Postman.Assembly.Collection;
@@ -32,11 +31,11 @@ public static class SimplifyDIRegistratorExtensions
 	private static IDIRegistrator RegisterAssembly(this IDIRegistrator registrator) =>
 		registrator.Register<CollectionHeaderBuilder>(LifetimeType.Singleton)
 			.Register<CollectionItemsBuilder>(LifetimeType.Singleton)
-			.Register(r => new CollectionBuilder(new List<ICollectionPartBuilder>
-			{
+			.Register(r => new CollectionBuilder(
+			[
 				r.Resolve<CollectionHeaderBuilder>(),
 				r.Resolve<CollectionItemsBuilder>()
-			}), LifetimeType.Singleton)
+			]), LifetimeType.Singleton)
 			.Register<EnvironmentBuilder>(LifetimeType.Singleton);
 
 	private static IDIRegistrator RegisterGenerators(this IDIRegistrator registrator) =>
