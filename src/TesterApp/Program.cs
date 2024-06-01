@@ -1,13 +1,24 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
+using Simplify.DI;
+using Simplify.Web;
+using Simplify.Web.Postman.Setup;
+using TesterApp.Setup;
 
-namespace TesterApp;
+DIContainer.Current
+	.RegisterAll()
+	.Verify();
 
-public class Program
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+if (builder.Environment.IsDevelopment())
 {
-	public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
-
-	public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-		WebHost.CreateDefaultBuilder(args)
-			.UseStartup<Startup>();
+	app.UseDeveloperExceptionPage();
+	DIContainer.Current.GeneratePostmanData();
 }
+
+app.UseSimplifyWeb();
+
+await app.RunAsync();

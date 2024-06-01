@@ -7,16 +7,12 @@ namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders;
 /// Provides CollectionHeader builder
 /// </summary>
 /// <seealso cref="ICollectionPartBuilder" />
-public class CollectionHeaderBuilder : ICollectionPartBuilder
+/// <remarks>
+/// Initializes a new instance of the <see cref="CollectionHeaderBuilder"/> class.
+/// </remarks>
+/// <param name="settings">The settings.</param>
+public class CollectionHeaderBuilder(IPostmanGenerationSettings settings) : ICollectionPartBuilder
 {
-	private readonly IPostmanGenerationSettings _settings;
-
-	/// <summary>
-	/// Initializes a new instance of the <see cref="CollectionHeaderBuilder"/> class.
-	/// </summary>
-	/// <param name="settings">The settings.</param>
-	public CollectionHeaderBuilder(IPostmanGenerationSettings settings) => _settings = settings;
-
 	/// <summary>
 	/// Builds the specified model part.
 	/// </summary>
@@ -24,6 +20,6 @@ public class CollectionHeaderBuilder : ICollectionPartBuilder
 	public void Build(CollectionModel model) =>
 		model.Header = new CollectionHeader
 		{
-			Name = _settings.ProjectName
+			Name = settings.ProjectName
 		};
 }

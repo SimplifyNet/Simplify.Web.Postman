@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Simplify.Web.Modules;
+using Simplify.Web.Modules.ApplicationEnvironment;
 using Simplify.Web.Postman.Json;
 
 namespace Simplify.Web.Postman.IO;
@@ -44,5 +44,5 @@ public class ModelToFileExporter
 
 	private static string GenerateCollectionFilePath(string folderPath, string fileName) => Path.Combine(folderPath, fileName);
 
-	private string GenerateExportFolderPath() => Path.Combine(_environment.SitePhysicalPath, _generationFolderPath);
+	private string GenerateExportFolderPath() => Path.Combine(_environment.AppPhysicalPath, _generationFolderPath);
 }

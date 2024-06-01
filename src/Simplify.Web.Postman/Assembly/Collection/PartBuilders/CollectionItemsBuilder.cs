@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Simplify.Web.Meta;
+using Simplify.Web.Controllers.Meta;
+using Simplify.Web.Controllers.Meta.MetaStore;
+using Simplify.Web.Controllers.Meta.Routing;
+using Simplify.Web.Http;
 using Simplify.Web.Postman.Models;
 
 namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders;
@@ -18,12 +21,8 @@ public class CollectionItemsBuilder : ICollectionPartBuilder
 	/// <param name="model">The model.</param>
 	public void Build(CollectionModel model)
 	{
-		foreach (var item in ControllersMetaStore.Current.ControllersMetaData)
+		foreach (var item in ControllersMetaStore.Current.RoutedControllers)
 		{
-			// Skip any route controllers
-			if (item.ExecParameters == null)
-				continue;
-
 			foreach (var route in item.ExecParameters!.Routes)
 				BuildCollectionItems(model, 0, BuildRequestCollectionItem(item, route));
 		}
@@ -31,47 +30,48 @@ public class CollectionItemsBuilder : ICollectionPartBuilder
 
 	private static void BuildCollectionItems(CollectionItem currentLevelContainer, int currentLevel, CollectionItem item)
 	{
-		var path = item.Request.Url.Path;
-
-		// If recursion reached request level or reached route parameter
-		if (currentLevel == path.Count || path[currentLevel].StartsWith("{"))
+		while (true)
 		{
-			if (currentLevelContainer.Items == null)
-				currentLevelContainer.Items = new List<CollectionItem>();
+			var path = item.Request.Url.Path;
 
-			currentLevelContainer.Items.Add(item);
-			return;
-		}
-
-		// If path recursion not reached request level
-
-		var containerName = BuildContainerName(path[currentLevel]);
-
-		var container = currentLevelContainer.Items?.FirstOrDefault(x => x.Name == containerName);
-
-		if (container == null)
-		{
-			if (currentLevelContainer.Items == null)
-				currentLevelContainer.Items = new List<CollectionItem>();
-
-			currentLevelContainer.Items.Add(container = new CollectionItem
+			// If recursion reached request level or reached route parameter
+			if (currentLevel == path.Count || path[currentLevel].StartsWith("{"))
 			{
-				Name = containerName,
-				Items = new List<CollectionItem>()
-			});
-		}
+				currentLevelContainer.Items ??= [];
 
-		BuildCollectionItems(container, currentLevel + 1, item);
+				currentLevelContainer.Items.Add(item);
+				return;
+			}
+
+			// If path recursion not reached request level
+
+			var containerName = BuildContainerName(path[currentLevel]);
+
+			var container = currentLevelContainer.Items?.FirstOrDefault(x => x.Name == containerName);
+
+			if (container == null)
+			{
+				currentLevelContainer.Items ??= [];
+
+				container = new CollectionItem { Name = containerName, Items = [] };
+
+				currentLevelContainer.Items.Add(container);
+			}
+
+			currentLevelContainer = container;
+			currentLevel += 1;
+		}
 	}
 
-	private static CollectionItem BuildRequestCollectionItem(IControllerMetaData metaData, KeyValuePair<HttpMethod, string> route) =>
+	private static CollectionItem BuildRequestCollectionItem(IControllerMetadata metaData, KeyValuePair<HttpMethod, IControllerRoute> route) =>
 		new()
 		{
 			Name = BuildRequestName(metaData),
 			Request = RequestBuilder.Build(metaData, route),
-			Event = new List<Models.Event> { BasicTestsBuilder.Build() }
+			Event = [BasicTestsBuilder.Build()]
 		};
 
-	private static string BuildRequestName(IControllerMetaData metaData) => metaData.ControllerType.Name.Replace("Controller", "");
+	private static string BuildRequestName(IControllerMetadata metaData) => metaData.ControllerType.Name.Replace("Controller", "");
+
 	private static string BuildContainerName(string urlPart) => CultureInfo.CurrentCulture.TextInfo.ToTitleCase(urlPart.ToLower());
 }

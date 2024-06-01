@@ -2,25 +2,23 @@
 using Microsoft.AspNetCore.Mvc;
 using Simplify.Web;
 using Simplify.Web.Attributes;
-using Simplify.Web.Json.Responses;
-using TesterApp.ViewModels;
 using TesterApp.ViewModels.Groups;
 
 namespace TesterApp.Controllers.Api.v1.Groups;
 
 [Produces("application/json")]
 [Get("/api/v1/groups")]
-public class GetMultipleController : Simplify.Web.Controller
+public class GetMultipleController : Controller2
 {
-	public override ControllerResponse Invoke()
+	public ControllerResponse Invoke()
 	{
 		var items = new List<GroupViewModel>
 		{
-			new GroupViewModel
+			new()
 			{
 				Name = "Group 1"
 			},
-			new GroupViewModel
+			new()
 			{
 				Name = "Group 2"
 			}
@@ -28,6 +26,6 @@ public class GetMultipleController : Simplify.Web.Controller
 
 		// Items retrieve
 
-		return new Json(items);
+		return Json(items);
 	}
 }

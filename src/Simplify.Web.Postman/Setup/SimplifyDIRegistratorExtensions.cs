@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Simplify.DI;
-using Simplify.Web.Modules;
+using Simplify.Web.Modules.ApplicationEnvironment;
 using Simplify.Web.Postman.Assembly.Collection;
 using Simplify.Web.Postman.Assembly.Collection.PartBuilders;
 using Simplify.Web.Postman.Assembly.Environment;

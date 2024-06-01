@@ -6,14 +6,11 @@ namespace TesterApp.Controllers.Api.v1.Groups;
 
 [Produces("application/text")]
 [Authorize]
-[Patch("/api/v1/groups/{id:int}/rename")]
-public class RenameController : Simplify.Web.Controller
+[Patch("/api/v1/groups/{id}/rename")]
+public class RenameController : Controller2
 {
-	public override ControllerResponse Invoke()
-	{
-		if (RouteParameters.id <= 0)
-			return StatusCode(400, "User ID is invalid");
-
-		return NoContent();
-	}
+	public ControllerResponse Invoke(int id) =>
+		id <= 0
+			? StatusCode(400, "User ID is invalid")
+			: NoContent();
 }

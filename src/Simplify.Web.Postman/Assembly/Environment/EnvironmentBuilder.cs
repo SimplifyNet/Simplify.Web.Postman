@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Simplify.Web.Postman.Models;
 using Simplify.Web.Postman.Settings;
 
@@ -25,13 +24,13 @@ public class EnvironmentBuilder
 		new()
 		{
 			Name = _settings.ProjectName,
-			Values = new List<PostmanValue>
-			{
+			Values =
+			[
 				new PostmanValue
 				{
 					Key = "BaseUrl",
 					Value = "http://localhost:5000"
 				}
-			}
+			]
 		};
 }

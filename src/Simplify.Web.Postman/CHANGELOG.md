@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2] - Unreleased
+
+### Dependencies
+
+- Simplify.Web bump to 5.0
+
 ## [1.1] - 2023-11-07
 
 ### Fixed

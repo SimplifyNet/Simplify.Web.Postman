@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using Simplify.Web.Meta;
+using Simplify.Web.Controllers.Meta;
+using Simplify.Web.Controllers.Meta.Routing;
+using Simplify.Web.Http;
 using Simplify.Web.Postman.Models;
 
 namespace Simplify.Web.Postman.Assembly.Collection.PartBuilders;
@@ -33,13 +35,13 @@ public static class RequestBuilder
 	/// </summary>
 	/// <param name="metaData">The meta data.</param>
 	/// <param name="route">The route.</param>
-	public static Request Build(IControllerMetaData metaData, KeyValuePair<HttpMethod, string> route) =>
+	public static Request Build(IControllerMetadata metaData, KeyValuePair<HttpMethod, IControllerRoute> route) =>
 		new()
 		{
 			Url = new Url
 			{
 				Host = BaseUrlPath,
-				Path = BuildPath(route.Value)
+				Path = BuildPath(route.Value.Path)
 			},
 			Method = route.Key.ToString().ToUpper(),
 			Body = TryBuildBody(metaData)
@@ -47,7 +49,7 @@ public static class RequestBuilder
 
 	private static IList<string> BuildPath(string controllerRoute) => controllerRoute.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-	private static Body? TryBuildBody(IControllerMetaData metaData)
+	private static Body? TryBuildBody(IControllerMetadata metaData)
 	{
 		if (metaData.ControllerType.BaseType!.GenericTypeArguments.Length == 0)
 			return null;
@@ -56,9 +58,9 @@ public static class RequestBuilder
 		{
 			Mode = "raw",
 			Raw = BuildRequestJsonData(metaData.ControllerType.BaseType.GenericTypeArguments[0]),
-			Options = new()
+			Options = new BodyOptions
 			{
-				Raw = new()
+				Raw = new BodyRawOptions
 				{
 					Language = "json"
 				}
@@ -94,7 +96,7 @@ public static class RequestBuilder
 	{
 		var type = typeof(List<>);
 
-		Type[] typeArgs = { sourceListType.GetGenericArguments()[0] };
+		Type[] typeArgs = [sourceListType.GetGenericArguments()[0]];
 
 		return type.MakeGenericType(typeArgs);
 	}
@@ -114,7 +116,7 @@ public static class RequestBuilder
 			var emptyList = Activator.CreateInstance(emptyListType);
 			var emptyItem = Activator.CreateInstance(listObjectType);
 
-			emptyListType.GetMethod("Add")!.Invoke(emptyList, new[] { emptyItem });
+			emptyListType.GetMethod("Add")!.Invoke(emptyList, [emptyItem]);
 
 			propertyInfo.SetValue(model, emptyList);
 		}
