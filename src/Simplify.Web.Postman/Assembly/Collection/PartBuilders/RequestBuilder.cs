@@ -83,6 +83,9 @@ public static class RequestBuilder
 
 	private static object CreateObject(Type modelType)
 	{
+		if (modelType == typeof(string))
+			return string.Empty;
+
 		if (IsGenericList(modelType))
 			modelType = ConstructGenericListTypeFromGenericIList(modelType);
 
@@ -113,7 +116,7 @@ public static class RequestBuilder
 			var emptyListType = ConstructGenericListTypeFromGenericIList(propertyInfo.PropertyType);
 
 			var emptyList = Activator.CreateInstance(emptyListType);
-			var emptyItem = Activator.CreateInstance(listObjectType);
+			var emptyItem = CreateObject(listObjectType);
 
 			emptyListType.GetMethod("Add")!.Invoke(emptyList, [emptyItem]);
 
