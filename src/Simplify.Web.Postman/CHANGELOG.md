@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1] - Unreleased
+
+### Fixed
+
+- Exception when generating Postman collections for controller request bodies containing `IList<string>` properties.
+
 ## [2.0] - 2024-06-05
 
 ### Dependencies
