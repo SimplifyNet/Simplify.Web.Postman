@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using TesterApp.ViewModels.Addresses;
 
 namespace TesterApp.ViewModels.Users;
 

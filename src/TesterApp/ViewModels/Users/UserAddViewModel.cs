@@ -13,4 +13,6 @@ public class UserAddViewModel
 	public string Password { get; set; }
 
 	public IList<AddressViewModel> Addresses { get; set; }
+
+	public IList<string> Emails { get; set; }
 }
