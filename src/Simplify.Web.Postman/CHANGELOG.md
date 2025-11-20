@@ -1,10 +1,14 @@
 # Changelog
 
-## [2.1] - Unreleased
+## [2.1] - 2025-11-20
 
 ### Fixed
 
 - Exception when generating Postman collections for controller request bodies containing `IList<string>` properties.
+
+### Dependencies
+
+- Simplify.Web bump to 5.1
 
 ## [2.0] - 2024-06-05
 

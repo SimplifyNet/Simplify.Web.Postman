@@ -8,28 +8,28 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<Version>2.1-pre01</Version>
+		<Version>2.1</Version>
 
 		<Description>Postman collection and environment generation extension for Simplify.Web</Description>
 		<Product>Simplify</Product>
 		<Authors>Simplify community</Authors>
 		<Copyright>Licensed under LGPL</Copyright>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</PackageProjectUrl>
-		<PackageIconUrl>https://raw.githubusercontent.com/SimplifyNet/Images/master/LogoWeb32x32.png</PackageIconUrl>
-		<RepositoryUrl>https://github.com/SimplifyNet/Simplify.Web.Postman</RepositoryUrl>
-		<RepositoryType>GIT</RepositoryType>
+		<PackageIcon>icon.png</PackageIcon>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>Simplify.Web Postman API</PackageTags>
 
 		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web.Postman/blob/master/src/Simplify.Web.Postman/CHANGELOG.md for details</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Simplify.Web" Version="5.0" />
+		<PackageReference Include="Simplify.Web" Version="5.1.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\..\images\icon.png" Pack="true" Visible="false" PackagePath="" />
 		<None Include="CHANGELOG.md" Pack="true" PackagePath="\" />
 		<None Include="..\..\LICENSE.txt" Pack="true" PackagePath="\" />
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 </Project>
